@@ -1,15 +1,4 @@
-#include "voleMachine.hpp"
-#include <iostream>
-#include <vector>
-#include <string>
-#include <algorithm>
-#include <cmath>
-#include <bitset>
-#include <bit>
-#include <cstring>
-#include<fstream>
-#include <map>
-using namespace std;
+#include "VoleMachine.h"
 
 map<int, char> decimalToHex = {
         {10, 'A'},
@@ -28,7 +17,7 @@ string ConvertToLower(string& s) {
 
 int main()
 {
- 
+
     bool f = true;
     while (f) {
         cout << "Welcome to our vole machine.\n";
@@ -60,7 +49,7 @@ int main()
                         machine.runProgram();
                         machine.output();
                     }
- 
+
                 }
                 else if (choice == 2) {
                     Machine machine;
