@@ -1,5 +1,5 @@
-#ifndef voleMachine
-#define voleMachine
+#ifndef VOLE_MACHINE_H
+#define VOLE_MACHINE_H
 
 #include <iostream>
 #include <vector>
@@ -15,21 +15,28 @@
 using namespace std;
 
 class Memory {
-    public:
+protected:
+    int size = 256;
+    vector<string> memory;
+
+public:
     Memory();
     void setcell(int index, string value);
     string getcell(int index);
     void printMemory();
 };
 class Regester {
-    public:
+protected:
+    int size = 16;
+    vector<string> memory;
+public:
     Regester();
     void setcell(int index, string value);
     string getcell(int index);
     void printRegester();
 };
 class ALU {
-    public:
+public:
     string intToBinary(int integerPart);
     string fracToBinary(float fractionalPart, int precision = 8);
     string floatToBinary(float num);
@@ -46,8 +53,15 @@ class ALU {
     bool jump_to_location(int regnum, Regester& reg);
 
 };
+
 class CPU {
-    public:
+protected:
+    int ProgramCounter;
+    string InstructionRegister;
+    ALU alu; 
+    Regester regester;
+    bool NotTerminated;
+public:
     CPU();
     void setcell(int index, string value);
     void output();
@@ -57,14 +71,18 @@ class CPU {
     void execute(Memory& memory, vector<string> operands);
     void run(Memory& memory);
 };
+
 class Machine {
+    Memory memory;
+    CPU cpu;
+public:
     bool isvalid(char c);
     bool ishexchar(char c);
     bool valid(string& s);
-    int indexisvalid(string x );
+    int indexisvalid(string x);
     int setIndex();
     bool OpenFileAndGetInstructions();
-    bool  GetInputFromTerminal();
+    bool GetInputFromTerminal();
     void runProgram();
     void output();
 
