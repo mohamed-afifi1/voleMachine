@@ -51,7 +51,7 @@ int main()
                     }
 
                 }
-                else if (choice ==  2) {
+                else if (choice == 2) {
                     Machine machine;
                     if (machine.GetInputFromTerminal()) {
                         machine.runProgram();
