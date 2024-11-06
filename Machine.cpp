@@ -29,8 +29,8 @@ int Machine::indexisvalid(string x) {
         return -1;
     }
 
-    if (y < 0 || y > 255) {
-        cout << "Error: Number must be between 0 and 255\n";
+    if (y < 2 || y > 255) {
+        cout << "Error: Number must be between 2 and 255\n";
         return -1;
     }
 
@@ -55,11 +55,11 @@ int Machine::setIndex() {
         cin >> c;
     }
     if (c == 2) return 10;
-    cout << "enter index in decimal (even and between 0 and 255 inclusive): ";
+    cout << "enter index in decimal (even and between 2 and 255 inclusive): ";
     string ind;
     cin >> ind;
     while (indexisvalid(ind) == -1) {
-        cout << "enter index in decimal (integer , even and between 0 and 255 inclusive): ";
+        cout << "enter index in decimal (integer , even and between 2 and 255 inclusive): ";
         cin >> ind;
     }
     return indexisvalid(ind);
