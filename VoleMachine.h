@@ -56,12 +56,12 @@ public:
 
 class CPU {
 protected:
-    int ProgramCounter;
     string InstructionRegister;
     ALU alu; 
     Regester regester;
-    bool NotTerminated;
 public:
+    int ProgramCounter;
+    bool NotTerminated;
     CPU();
     void setcell(int index, string value);
     void output();
@@ -70,12 +70,13 @@ public:
     vector<string> decode();
     void execute(Memory& memory, vector<string> operands);
     void run(Memory& memory);
+    void runOnlyOne(Memory& memory);
 };
 
 class Machine {
     Memory memory;
-    CPU cpu;
 public:
+    CPU cpu;
     bool isvalid(char c);
     bool ishexchar(char c);
     bool valid(string& s);
@@ -85,6 +86,7 @@ public:
     bool GetInputFromTerminal();
     void runProgram();
     void output();
+    void runOnlyOne();
 
 };
 #endif

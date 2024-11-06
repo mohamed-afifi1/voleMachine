@@ -179,6 +179,10 @@ void Machine::runProgram() {
     cpu.run(memory);
 }
 
+void Machine::runOnlyOne() {
+    cpu.runOnlyOne(memory);
+}
+
 void Machine::output() {
     memory.printMemory();
     cpu.output();

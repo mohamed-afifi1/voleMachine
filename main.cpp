@@ -58,6 +58,20 @@ int main()
                         machine.output();
                     }
                 }
+                else if (choice == 3) {
+                    Machine machine;
+                    if (machine.OpenFileAndGetInstructions()) {
+                        while(machine.cpu.ProgramCounter < 256 && machine.cpu.NotTerminated)
+                        {
+                            int iter = 1;
+                            cout << "In the iteration number: " << iter << endl;
+                            machine.output();
+                            iter++;
+                        }
+                        
+
+                    }
+                }
             }
             else if (ans == 2) {
                 f = false;

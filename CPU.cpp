@@ -136,3 +136,9 @@ void CPU::run(Memory& memory) {
         execute(memory, operands);
     }
 }
+void CPU::runOnlyOne(Memory& memory)
+{
+    fetch(memory);
+    vector<string> operands = decode();
+    execute(memory, operands);
+}
